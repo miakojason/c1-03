@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-03-04 02:55:11
+-- 產生時間： 2024-03-04 04:26:58
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -123,6 +123,15 @@ CREATE TABLE `menu` (
   `menu_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- 傾印資料表的資料 `menu`
+--
+
+INSERT INTO `menu` (`id`, `text`, `href`, `sh`, `menu_id`) VALUES
+(1, '管理登入', '?do=login', 1, 0),
+(2, '網站首頁', './index.php', 1, 0),
+(3, '更多內容', '?do=news', 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -186,6 +195,16 @@ CREATE TABLE `titles` (
   `sh` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- 傾印資料表的資料 `titles`
+--
+
+INSERT INTO `titles` (`id`, `img`, `text`, `sh`) VALUES
+(1, '01B01.jpg', '卓越科技大學校園資訊系統', 1),
+(2, '01B02.jpg', '卓越科技大學校園資訊系統', 0),
+(3, '01B03.jpg', '卓越科技大學校園資訊系統', 0),
+(4, '01B04.jpg', '卓越科技大學校園資訊系統', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -202,7 +221,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 5000);
+(1, 5001);
 
 --
 -- 已傾印資料表的索引
@@ -294,7 +313,7 @@ ALTER TABLE `image`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mvim`
@@ -312,7 +331,7 @@ ALTER TABLE `news`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `titles`
 --
 ALTER TABLE `titles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `total`
