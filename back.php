@@ -14,20 +14,21 @@
 <body>
 	<div id="cover" style="display:none; ">
 		<div id="coverr">
-			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl(&#39;#cover&#39;)">X</a>
+			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>
 			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 		</div>
 	</div>
+	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
 		<a title="" href="./index.php">
-			<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div><!--標題-->
+			<div class="ti" style="background:url('use/'); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">後台管理選單</span>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=admin">
+					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=title">
 						<div class="mainmu">
 							網站標題管理 </div>
 					</a>
@@ -77,35 +78,19 @@
 					<tbody>
 						<tr>
 							<td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;" class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a></td>
-							<td><button onclick="location.href='./api/logout.php'" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
+							<td><button onclick="document.cookie='user=';location.replace('?')" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
 						</tr>
 					</tbody>
 				</table>
-				<div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
-					<p class="t cent botli">網站標題管理</p>
-					<form method="post" target="back" action="?do=tii">
-						<table width="100%">
-							<tbody>
-								<tr class="yel">
-									<td width="45%">網站標題</td>
-									<td width="23%">替代文字</td>
-									<td width="7%">顯示</td>
-									<td width="7%">刪除</td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
-						<table style="margin-top:40px; width:70%;">
-							<tbody>
-								<tr>
-									<td width="200px"><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;view.php?do=title&#39;)" value="新增網站標題圖片"></td>
-									<td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
-								</tr>
-							</tbody>
-						</table>
-
-					</form>
-				</div>
+				<?php
+				$do = $_GET['do'] ?? 'title';
+				$file = "./front/{$do}.php";
+				if (file_exists($file)) {
+					include $file;
+				} else {
+					include "./back/title.php";
+				}
+				?>
 			</div>
 			<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
 			<script>
@@ -126,7 +111,8 @@
 		</div>
 		<div style="clear:both;"></div>
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"></spa
+			<span class="t" style="line-height:123px;"></span>
+		</div>
 	</div>
 
 </body>
