@@ -19,12 +19,11 @@
         }
         ?>
         var now = 0;
-        ww();
+        ww()
         if (lin.length > 1) {
             setInterval("ww()", 3000);
             now = 1;
         }
-
         function ww() {
             $("#mwww").html("<embed loop=true src='./img/" + lin[now] + "' style='width:99%; height:100%;'></embed>")
             //$("#mwww").attr("src",lin[now])

@@ -13,9 +13,9 @@
         <?php
         $lins = $Mvim->all(['sh' => 1]);
         foreach ($lins as $lin) {
-        ?>
-        lin.push('<?=$lin['img'];?>');
-        <?php
+            ?>
+            lin.push('<?= $lin['img']; ?>');
+            <?php
         }
         ?>
         var now = 0;
