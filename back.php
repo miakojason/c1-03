@@ -21,8 +21,11 @@
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<a title="" href="./index.php">
-			<div class="ti" style="background:url('use/'); background-size:cover;"></div><!--標題-->
+	<?php
+$title=$Title->find(['sh'=>1]);
+		?>
+		<a title="<?= $title['text']; ?>" href="./index.php">
+			<div class="ti" style="background:url('./img/<?= $title['img']; ?>'); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">

@@ -20,8 +20,11 @@
 		</div>
 	</div>
 	<div id="main">
-		<a title="" href="./index.php">
-			<div class="ti" style="background:url('use/'); background-size:cover;"></div><!--標題-->
+		<?php
+		$title = $Title->find(['sh' => 1]);
+		?>
+		<a title="<?= $title['text']; ?>" href="./index.php">
+			<div class="ti" style="background:url('./img/<?= $title['img']; ?>'); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
@@ -41,7 +44,7 @@
 									$opts = $Menu->all(['menu_id' => $main['id']]);
 									foreach ($opts as $opt) {
 									?>
-									<div class="mainmu2"><a href="<?=$opt['href'];?>"><?=$opt['text'];?></a></div>
+										<div class="mainmu2"><a href="<?= $opt['href']; ?>"><?= $opt['text']; ?></a></div>
 									<?php
 									}
 									?>
