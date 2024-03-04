@@ -32,20 +32,29 @@
 					$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
 					foreach ($mainmu as $main) {
 					?>
-						<div class="mainmu"><a href="<?= $main['href']; ?>"><?= $main['text']; ?></a>
+						<div class="mainmu">
+							<a href="<?= $main['href']; ?>"><?= $main['text']; ?></a>
 							<?php
-							if ($Menu->count(['menu_id' => $main['id']]) > 0);
+							if ($Menu->count(['menu_id' => $main['id']]) > 0) {
 							?>
-							<div class="mw" style="display:none">
-								<?php
-								$opts = $Menu->all(['menu_id' => $main['id']]);
-								foreach ($opts as $opt) {
-								?>
-								<div class="mainmu2"><a href="<?=$opt['href'];?>"><?=$opt['text'];?></a></div>
-								<?php
-								}
-								?>
-							</div>
+								<div class="mw">
+									<?php
+									$opts = $Menu->all(['menu_id' => $main['id']]);
+									foreach ($opts as $opt) {
+									?>
+										<div class="mainmu2">
+											<a href="<?= $opt['href']; ?>"><?= $opt['text']; ?>
+										</div>
+									</a>
+								</div>
+
+							<?php
+									}
+							?>
+
+						<?php
+							}
+						?>
 						</div>
 					<?php
 					}
@@ -92,7 +101,9 @@
 					$imgs = $Image->all(['sh' => 1]);
 					foreach ($imgs as $idx => $img) {
 					?>
-						<div class="im cent" id="ssaa<?= $idx; ?>"><img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px"></div>
+						<div class="cent im" id="ssaa<?= $idx; ?>">
+							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:105px">
+						</div>
 					<?php
 					}
 					?>
