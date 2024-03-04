@@ -34,23 +34,25 @@
 					?>
 						<div class="mainmu"><a href="<?= $main['href']; ?>"><?= $main['text']; ?></a>
 							<?php
-							if ($Menu->count(['menu_id' => $main['id']]) > 0);
+							if ($Menu->count(['menu_id' => $main['id']]) > 0) {
 							?>
-							<div class="mw" style="display:none">
-								<?php
-								$opts = $Menu->all(['menu_id' => $main['id']]);
-								foreach ($opts as $opt) {
-								?>
-								<div class="mainmu2"><a href="<?=$opt['href'];?>"><?=$opt['text'];?></a></div>
-								<?php
-								}
-								?>
-							</div>
+								<div class="mw" style="display: none;">
+									<?php
+									$opts = $Menu->all(['menu_id' => $main['id']]);
+									foreach ($opts as $opt) {
+									?>
+									<div class="mainmu2"><a href="<?=$opt['href'];?>"><?=$opt['text'];?></a></div>
+									<?php
+									}
+									?>
+								</div>
+							<?php
+							}
+							?>
 						</div>
 					<?php
 					}
 					?>
-
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :<?= $Total->find(1)['total']; ?></span>

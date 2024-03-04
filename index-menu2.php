@@ -28,6 +28,29 @@
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
+					<?php
+					$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
+					foreach ($mainmu as $main) {
+					?>
+						<div class="mainmu"><a href="<?= $main['href']; ?>"><?= $main['text']; ?></a>
+							<?php
+							if ($Menu->count(['menu_id' => $main['id']]) > 0);
+							?>
+							<div class="mw" style="display:none">
+								<?php
+								$opts = $Menu->all(['menu_id' => $main['id']]);
+								foreach ($opts as $opt) {
+								?>
+								<div class="mainmu2"><a href="<?=$opt['href'];?>"><?=$opt['text'];?></a></div>
+								<?php
+								}
+								?>
+							</div>
+						</div>
+					<?php
+					}
+					?>
+
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :<?= $Total->find(1)['total']; ?></span>
@@ -67,15 +90,15 @@
 					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
 					<?php
 					$imgs = $Image->all(['sh' => 1]);
-					foreach ($imgs as $idx=>$img) {
+					foreach ($imgs as $idx => $img) {
 					?>
-					<div class="im cent" id="ssaa<?=$idx;?>"><img src="./img/<?=$img['img'];?>" style="width:150px;height:103px"></div>
+						<div class="im cent" id="ssaa<?= $idx; ?>"><img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px"></div>
 					<?php
 					}
 					?>
 					<script>
 						var nowpage = 1,
-							num = <?=$Image->count(['sh'=>1]);?>;
+							num = <?= $Image->count(['sh' => 1]); ?>;
 
 						function pp(x) {
 							var s, t;
