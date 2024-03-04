@@ -2,8 +2,19 @@
 <?php include "./front/marquee.php";?>
 	<div style="height:32px; display:block;"></div>
 	<!--正中央-->
-	<div style="text-align:center;">
-		<a class="bl" style="font-size:30px;" href="?do=meg&p=0">&lt;&nbsp;</a>
-		<a class="bl" style="font-size:30px;" href="?do=meg&p=0">&nbsp;&gt;</a>
-	</div>
+<h3 class="cent">更多最新消息顯示區</h3>
+<hr>
+<?php
+$total=$News->count(['sh'=>1]);
+$div=5;
+$pages=ceil($total/$div);
+$now=$_GET['p']??1;
+$start=($now-1)*$div;
+$news=$News->all(['sh'=>1]," limit $start,$div");
+foreach($news as $new){
+?>
+
+<?php
+}
+?>
 </div>

@@ -44,14 +44,10 @@
         <ul class="ssaa" style="list-style-type:decimal;">
             <?php
             $total = $News->count(['sh' => 1]);
-            $div = 5;
-            $pages = ceil($total / $div);
-            $now = $_GET['p'] ?? 1;
-            $start = ($now - 1) * $div;
-            $news = $News->all(['sh' => 1], " limit $start,$div");
-            foreach ($news as $idx => $new) {
+            $news = $News->all(['sh' => 1], " limit 5");
+            foreach ($news as $new) {
             ?>
-                <li start="<?= $idx; ?>">
+                <li>
                     <div><?= mb_substr($new['text'], 0, 20); ?>...</div>
                     <div class="all" style="display: none;"><?= $new['text']; ?></div>
                 </li>
