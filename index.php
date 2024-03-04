@@ -67,15 +67,17 @@
 					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
 					<?php
 					$imgs = $Image->all(['sh' => 1]);
-					foreach ($imgs as $idx=>$img) {
+					foreach ($imgs as $idx => $img) {
 					?>
-					<div class="im cent" id="ssaa<?=$idx;?>"><img src="./img/<?=$img['img'];?>" style="width:150px;height:103px"></div>
+						<div class="cent im" id="ssaa<?= $idx; ?>">
+							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:105px">
+						</div>
 					<?php
 					}
 					?>
 					<script>
 						var nowpage = 1,
-							num = <?=$Image->count(['sh'=>1]);?>;
+							num = <?= $Image->count(['sh' => 1]); ?>;
 
 						function pp(x) {
 							var s, t;
