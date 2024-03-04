@@ -1,9 +1,9 @@
 <?php
-date_default_timezone_set("Asiz/Taipei");
+date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB
 {
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=c2-03";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=c1-03";
     protected $pdo;
     protected $table;
     public function __construct($table)
@@ -25,7 +25,7 @@ class DB
                 $sql = "update `$this->table` set ";
                 $tmp = $this->a2s($array);
                 $sql .= join(",", $tmp);
-                $sql .= " where `id`='{$array['id']}'";
+                $sql .= " where `id` = '{$array['id']}'";
             } else {
                 echo "空的";
             }
@@ -57,10 +57,11 @@ class DB
             $tmp = $this->a2s($id);
             $sql .= join(" && ", $tmp);
         } elseif (is_numeric($id)) {
-            $sql = "`id`='$id'";
+            $sql .= "`id`='$id'";
         } else {
             echo "x type";
         }
+     
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
     private function sql_all($sql, $array, $other)
