@@ -12,7 +12,7 @@
         $rows = $Menu->all(['menu_id' => $_GET['id']]);
         foreach ($rows as $row) {
         ?>
-            <tr>
+            <tr class="opt">
                 <td><input type="text" name="text[]" value="<?= $row['text']; ?>"></td>
                 <td><input type="text" name="href[]" value="<?= $row['href']; ?>"></td>
                 <td>
@@ -35,5 +35,9 @@
     </table>
 </form>
 <script>
-
+    function more() {
+        let opt = `<tr><td><input type="text" name="add_text[]"></td>
+                <td><input type="text" name="text_href[]"></td></tr>`
+                $(".opt").after(opt)
+    }
 </script>
