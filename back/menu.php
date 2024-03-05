@@ -24,7 +24,7 @@
                         <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                     </td>
                     <td>
-                        <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./model/upload.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')">
+                        <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./model/submenu.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')">
                     </td>
                 </tr>
             <?php
