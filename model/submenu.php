@@ -16,7 +16,7 @@
                 <td><input type="text" name="text[]" value="<?= $row['text']; ?>"></td>
                 <td><input type="text" name="href[]" value="<?= $row['href']; ?>"></td>
                 <td>
-                    <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                    <input type="hidden" name="menu_id[]" value="<?= $row['id']; ?>">
                     <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                 </td>
             </tr>
