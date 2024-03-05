@@ -27,11 +27,12 @@
                 }
                 ?>
             </tbody>
+            </table>
         <table style="margin-top:40px; width:70%;">
  
                 <tr>
                     <input type="hidden" name="table" value="<?= $do; ?>">
-                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./model/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增動畫圖片圖片"></td>
+                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./model/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增動畫圖片"></td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
 
