@@ -27,7 +27,7 @@
 <div>
     <input type="hidden" name="table" value="<?= $_GET['table']; ?>">
     <input type="hidden" name="menu_id" value="<?= $_GET['id']; ?>">
-    <input type="submit" value="新增">
+    <input type="submit" value="確定修改">
     <input type="reset" value="重置">
     <input type="button" value="更多次選單" onclick="more()">
 </div>
