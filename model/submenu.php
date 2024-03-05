@@ -35,7 +35,7 @@
 <script>
     function more() {
         let opt = `<tr><td><input type="text" name="add_text[]"></td>
-                <td><input type="text" name="text_href[]"></td></tr>`
+                <td><input type="text" name="add_href[]"></td></tr>`
         $(".opt").append(opt)
     }
 </script>
