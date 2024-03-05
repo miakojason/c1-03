@@ -18,6 +18,8 @@ if(isset($_POST['add_text'])){
             $data['text']=$text;
             $data['href']=$_POST['add_href'][$idx];
             $data['menu_id']=$_POST['menu_id'];
+            $Menu->save($data);
         }
     }
 }
+to("../back.php?do=menu");
