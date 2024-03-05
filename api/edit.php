@@ -1,7 +1,6 @@
 <?php include_once "./db.php";
 $table=$_POST['table'];
 $DB=${ucfirst($table)};
-if(isset($_POST['id'])){
     foreach($_POST['id'] as $key=>$id){
         if(isset($_POST['del']) && in_array($id,$_POST['id'])){
             $DB->del($id);
@@ -28,5 +27,4 @@ if(isset($_POST['id'])){
             $DB->save($row);
         }
     }
-}
 to("../back.php?do=$table");
